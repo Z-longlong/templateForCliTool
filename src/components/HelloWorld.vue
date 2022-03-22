@@ -35,6 +35,9 @@ const count = ref(0)
 a {
   color: #42b983;
 }
+p {
+  color: $primary-color;
+}
 
 label {
   margin: 0 0.5em;
