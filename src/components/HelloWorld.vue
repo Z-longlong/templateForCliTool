@@ -31,7 +31,7 @@ const count = ref(0)
   </p>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 a {
   color: #42b983;
 }
