@@ -1,4 +1,4 @@
-const error = {
+const error: any = {
   // 通用错误吗
   '-1': '内部错误',
   '-6': '对不起，登录信息无效，请重新登录',
@@ -6,10 +6,7 @@ const error = {
   2: '系统繁忙，请稍候再试',
 }
 
-export default function (res: {
-  status: number
-  data: { hasOwnProperty: (arg0: string) => any; errorMsg: any; errno: string | number }
-}) {
+export default function (res: any) {
   if (res.status >= 400) {
     return
   }

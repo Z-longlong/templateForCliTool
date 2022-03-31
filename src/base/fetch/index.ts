@@ -2,7 +2,7 @@
  * @file 接口封装服务
  */
 import config from './config'
-import axios, { AxiosRequestConfig } from 'axios'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import errorWarning from './errorWarning'
 
 interface FetchType extends AxiosRequestConfig {
@@ -17,7 +17,7 @@ export const fetch = function (config: FetchType) {
 }
 
 fetch(config).interceptors.request.use(
-  (config): AxiosRequestConfig<any> => {
+  (config): AxiosRequestConfig => {
     // 请求拦截器
     const params = config.params || {}
     params.clienttype = 53
@@ -30,7 +30,7 @@ fetch(config).interceptors.request.use(
 
 // 返回状态判断
 fetch(config).interceptors.response.use(
-  (res) => {
+  (res: AxiosResponse) => {
     // 响应拦截器
     return errorWarning(res)
   },
